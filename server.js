@@ -1,16 +1,15 @@
-'use strict';
+//Load express module with `require` directive
+var express = require('express')
+var app = express()
 
-const express = require('express');
+var port = process.env.PORT || 1337;
 
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
+//Define request response in root URL (/)
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello world\n');
-});
-
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+//Launch listening server on port 8081
+app.listen(port, function () {
+  console.log('app listening on port 1337!')
+})
